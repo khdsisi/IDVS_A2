@@ -54,7 +54,7 @@
             picture of how residential properties have evolved over time. We’re not just looking at numbers on a
             spreadsheet—we’re tracing the stories embedded in every property sale, exploring how price fluctuations,
             neighborhood demographics, and investor behavior form a living tapestry of urban change. By zooming out for
-            a citywide perspective and then drilling down into hyper-local trends, we aim to pinpoint signs of
+            a citywide perspective and then drilling down into hyper-local trends, I aim to pinpoint signs of
             speculation, reveal the true movers and shakers in each neighborhood, and inspire fresh insights for
             everyone from local policymakers to market-savvy investors. The ultimate goal? To spark a deeper dialogue on
             the forces driving Boston’s housing market—where it’s been, where it’s headed, and who stands to benefit
@@ -81,7 +81,7 @@
           second dataset focuses on corporate ownership rates and owner occupancy rates from 2004–2024, allowing us to
           see where corporations and absentee owners may be exerting more influence on the housing market. By merging
           and filtering both datasets—removing sparse records, aligning geographic codes, and standardizing time
-          formats—we can create a robust, clean foundation for exploring factors like speculation, neighborhood
+          formats—Ican create a robust, clean foundation for exploring factors like speculation, neighborhood
           appreciation, and market shifts at a granular level.
           <br><br>
           The two datasets used are "Residential sales data in the City of Boston, 2000-2023" and "Corporate ownership
@@ -90,7 +90,7 @@
 
         <!-- Data transformation & quality paragraph -->
         <p class="f-16-b mt-3">
-          <em>Data transformation.</em> We <strong>left‑joined</strong> the two sources on standardized
+          <em>Data transformation.</em> I <strong>left‑joined</strong> the two sources on standardized
           <code>parcel_id</code> + <code>year</code>, dropped rows with &gt; 50 % missing fields (n = 862), harmonized
           ZIP formats (02109→2109), and converted all dates to ISO‑8601—yielding a tidy <code>master_df</code> of
           421 276 rows.<br>
