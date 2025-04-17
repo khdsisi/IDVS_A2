@@ -177,7 +177,7 @@
         <p class="f-16-b mt-4">
           This graph shows the average residential sale prices from 2000 to 2022. The trend line indicates a general upward movement in prices over these two decades. There was relatively steady growth from 2000-2016, with prices roughly doubling from $1M to $2M. A dramatic spike occurred in 2017, reaching nearly $4M, followed by significant volatility with multiple peaks and valleys through 2020. The final years show a sharp decline, ending at approximately $1.87M in 2022, though this remains higher than pre-2016 levels.
         </p>
-        <p class="f-16-b mt-2"><strong>Insight →</strong> Prices outpaced Boston CPI by ≈ 2.4 pp/yr except 2018‑20.<br>
+        <p class="f-16-b mt-2"><strong>Insight →</strong> Sale prices have shown long-term growth with some periods of rapid fluctuation, suggesting cycles of boom and correction in the market.<br>
           <strong>Potential Next Steps for Further Development →</strong> overlay foreclosure filings to test if the 2017 spike foreshadowed distress.</p>
       </div>
     </div>
@@ -220,7 +220,7 @@
         <p class="f-16-b mt-4">
           The chart illustrates fluctuations in average prices throughout the year, showing a distinct seasonal trend. Prices tend to peak around mid-year, with the highest average in June at approximately 2,598,478, suggesting a strong market during the spring and early summer months. In contrast, prices dip in the winter, reaching the lowest average in January at around 1,345,674, indicating a slower market during colder months. This trend suggests that buyers and sellers are more active in warmer months, likely due to favorable weather and moving conditions. Overall, the data highlights a cyclical pattern in Boston’s real estate market, with increased demand and higher prices in the spring and summer.
         </p>
-        <p class="f-16-b mt-2"><strong>Insight →</strong> A May–July premium of ~93 % suggests timing arbitrage.<br>
+        <p class="f-16-b mt-2"><strong>Insight →</strong> Clear seasonal patterns indicate that real estate activity is not evenly distributed throughout the year, likely tied to behavioral and logistical factors.<br>
           <strong>Potential Next Steps for Further Development →</strong> compare DOM (days‑on‑market) across seasons to see if liquidity explains the
           premium.</p>
       </div>
@@ -264,8 +264,7 @@
         <p class="f-16-b mt-4">
           This bar graph shows the distribution of residential sales prices, with the highest concentration of properties selling in the 50,000K range, representing approximately 70 properties. The frequency rapidly decreases as the price range increases, with about 23 properties selling in the 100,000K range and roughly 33 properties in the 150,000K bracket. The distribution continues to taper off significantly beyond the 200,000K mark, showing a classic right-skewed pattern typical of real estate markets, where fewer properties sell at higher price points. Notably, there are very few sales beyond the 300,000K price point, with only occasional properties selling in the higher ranges up to 950,000K, suggesting this is likely a market dominated by entry-level to mid-range properties.
         </p>
-        <p class="f-16-b mt-2"><strong>Insight →</strong> 4 % of sales (&gt;$2 M) contribute 22 % of volume‑weighted
-          value.<br> 
+        <p class="f-16-b mt-2"><strong>Insight →</strong> The majority of sales cluster at lower price points, but a small number of high-end transactions account for a disproportionate share of overall market value.<br> 
           <strong>Potential Next Steps for Further Development →</strong> split by mortgage‑type to see if jumbo loans dominate the right tail.</p>
       </div>
     </div>
@@ -308,7 +307,7 @@
         <p class="f-16-b mt-4">
           This scatter plot with a trend line shows the relationship between lot size (x-axis) and sale price (y-axis), revealing a positive correlation between the two variables. The upward-sloping trend line indicates that, generally, as lot size increases, sale price tends to increase as well. There is some scatter around the trend line, with several notable outliers - particularly one property selling for about 12B with a relatively small lot size, and another selling for about 22B with a larger lot size. The overall pattern suggests that while lot size is a significant factor in determining property value, other factors must also influence price given the significant variations from the trend line.
         </p>
-        <p class="f-16-b mt-2"><strong>Insight →</strong> Log‑log elasticity ≈ 0.37, R² = 0.12.<br>
+        <p class="f-16-b mt-2"><strong>Insight →</strong> There is a general relationship between lot size and price, though other variables clearly moderate or override this relationship in many cases.<br>
           <strong>Potential Next Steps for Further Development →</strong> add ZIP fixed effects or kernel‑weighted surface to isolate land value.</p>
       </div>
     </div>
@@ -351,8 +350,7 @@
         <p class="f-16-b mt-4">
           This tree map shows price appreciation across different neighborhoods, identified by ZIP codes. ZIP code 02215 leads with the highest appreciation at 100%, followed by 02116 at 93%. The middle-range performers include 02111 and 02110 with appreciation rates of 88.9% and 80.6% respectively. The lowest appreciation rates are seen in 02113 and 02115 at 2.4% and 6.0%, with several other ZIP codes showing moderate appreciation between 10-42%.
         </p>
-        <p class="f-16-b mt-2"><strong>Insight →</strong> 02215 &amp; 02116 are “super‑gainers”, correlating with
-          university and tech‑cluster demand.<br>
+        <p class="f-16-b mt-2"><strong>Insight →</strong> Some neighborhoods have experienced significantly greater appreciation than others, pointing to uneven growth and localized demand surges.<br>
           <strong>Potential Next Steps for Further Development →</strong> run a cluster analysis on amenity density to
           test explanatory power.</p>
       </div>
@@ -396,8 +394,7 @@
         <p class="f-16-b mt-4">
           This chart visualizes the average price per square foot in different neighborhoods of Boston using a geospatial heat map. Darker shades represent areas with higher price per square foot, indicating higher property values, while lighter shades signify more affordable regions. The central neighborhoods exhibit significantly higher prices, suggesting demand concentration in core urban areas. Some peripheral neighborhoods show moderate to low price per square foot, likely due to lower demand or larger property sizes. This visualization helps compare affordability and real estate value across various locations in the city.
         </p>
-        <p class="f-16-b mt-2"><strong>Insight →</strong> Core neighborhoods command &gt;$1 000 / ft² while outskirts
-          remain &lt;$500 / ft². <br>
+        <p class="f-16-b mt-2"><strong>Insight →</strong> Central neighborhoods exhibit higher prices per square foot, reflecting their desirability and density, while peripheral areas remain more affordable. <br>
           <strong>Potential Next Steps for Further Development →</strong> regress $/ft² on transit‑stop distance to quantify the
           accessibility premium.</p>
       </div>
@@ -441,8 +438,7 @@
         <p class="f-16-b mt-4">
           This map shows luxury housing developments by zip code using latitude and longitude coordinates, with bubble sizes representing the total value of luxury properties. The data shows a clear clustering of luxury developments in the northeastern area (around coordinates 42-44 lat, -70 to -72 lon), suggesting a concentrated high-end market in this region. While there are some outlier developments in other areas (like 02132 and 02205 in the northwest), they represent significantly smaller property values as shown by their smaller bubble sizes. The largest concentration of luxury properties appears to be in zip codes 02109, 02136, and surrounding areas, forming a dense cluster of high-value developments in what appears to be a prime location.
         </p>
-        <p class="f-16-b mt-2"><strong>Insight →</strong> 72 % of luxury value lies within a 3‑mile radius of Downtown
-          Crossing. <br>
+        <p class="f-16-b mt-2"><strong>Insight →</strong> Luxury developments are heavily concentrated in specific areas, indicating localized investor interest and potential policy impacts on development patterns. <br>
           <strong>Potential Next Steps for Further Development →</strong> relate this cluster to 2015 height‑bonus zoning to test causal links.
         </p>
       </div>
@@ -486,8 +482,7 @@
         <p class="f-16-b mt-4">
           This graph combines monthly sales volume (bars) and average price trends (line) from 2000 to 2022. The sales volume peaked in 2004 at 3,205 units, followed by a general declining trend in transaction volume. The price trend shows significant volatility, particularly after 2016, with a dramatic spike to nearly $4M in 2017. There's an interesting inverse relationship in recent years (2019-2022) where sales volume declines correspond with price increases and vice versa. The most recent data shows both metrics declining, with sales volume at 1,516 units and average price around $1.87M.
         </p>
-        <p class="f-16-b mt-2"><strong>Insight →</strong> Price spikes align with low volume—classic illiquidity
-          premium. <br>
+        <p class="f-16-b mt-2"><strong>Insight →</strong> Periods of reduced transaction volume often coincide with price volatility, suggesting limited liquidity may drive sudden shifts in market value. <br>
           <strong>Potential Next Steps for Further Development →</strong> compute price‑to‑rent ratios by year to gauge fundamental support.</p>
       </div>
     </div>
@@ -530,7 +525,7 @@
         <p class="f-16-b mt-4">
 This stacked area chart compares investor purchases (blue) to owner-occupied sales (orange) from 2000 to 2022. Owner-occupied sales consistently make up the majority of transactions, with a peak of 2,675 sales in 2004, while investor purchases have remained a smaller but steady portion of the market. The data shows a significant market decline after 2004, with both types of purchases dropping until 2010. After 2010, the market stabilized with total sales ranging between 1,500-2,000 units annually, and investor activity has gradually increased its share of total sales, particularly noticeable in recent years (2018-2022). In each segment, the pie chart shows the distribution of property ownership between corporate and individual holders in detail. The clean, two-segment split makes it clear that these are the only two categories being tracked in the property holding analysis.
         </p>
-        <p class="f-16-b mt-2"><strong>Insight →</strong> Investor share rose from 9 % (2010) to 22 % (2022).<br>
+        <p class="f-16-b mt-2"><strong>Insight →</strong> Investor activity has grown over time, gradually capturing a larger share of the housing market and altering its composition.<br>
           <strong>Potential Next Steps for Further Development →</strong> overlay eviction filings to evaluate social impact of the rising share.</p>
       </div>
     </div>
@@ -573,8 +568,7 @@ This stacked area chart compares investor purchases (blue) to owner-occupied sal
         <p class="f-16-b mt-4">
 This geospatial map illustrates the distribution of owner-occupied versus corporate-owned properties across Boston neighborhoods, where the circle color indicates owner occupancy rates (darker green denotes higher rates) and the circle size represents corporate ownership (larger circles signify greater corporate presence). Notably, neighborhoods like Roslindale and Hyde Park show the highest owner occupancy rate (0.02), correlating with smaller circle sizes to reflect lower corporate ownership. In contrast, areas with larger bubbles exhibit a higher concentration of corporate-held properties, suggesting that as corporate ownership rises, owner occupancy tends to decline. This visualization provides a clear, neighborhood-level perspective on how ownership dynamics vary throughout Boston.
         </p>
-        <p class="f-16-b mt-2"><strong>Insight →</strong> Correlation = −0.61 between owner‑occ rate and corporate
-          share. <br>
+        <p class="f-16-b mt-2"><strong>Insight →</strong> Areas with higher corporate ownership tend to have lower owner-occupancy rates, revealing a potential inverse relationship between speculation and stability. <br>
           <strong>Potential Next Steps for Further Development →</strong> perform Moran’s I on corporate presence to detect spatial autocorrelation.
         </p>
       </div>
@@ -618,8 +612,7 @@ This geospatial map illustrates the distribution of owner-occupied versus corpor
         <p class="f-16-b mt-4">
           The chart illustrates the trend of cash versus mortgage-financed sales as a percentage of total sales from 2000 to 2022. Initially, both payment types were closely aligned, with cash sales slightly higher. Around 2007, cash sales began to rise significantly, peaking in 2011, while mortgage sales remained lower. After 2014, mortgage sales started increasing steadily, narrowing the gap. By 2022, both payment types were nearly equal, though cash sales maintained a slight advantage.
         </p>
-        <p class="f-16-b mt-2"><strong>Insight →</strong> Post‑GFC flight‑to‑cash peaked at 54 % (2011); mortgages have
-          narrowed the gap since 2016.<br>
+        <p class="f-16-b mt-2"><strong>Insight →</strong> Shifts between cash and mortgage financing suggest sensitivity to broader economic conditions and changing buyer behavior over time. <br>
           <strong>Potential Next Steps for Further Development →</strong> examine interest‑rate spreads to link macro
           conditions to payment choice.</p>
       </div>
