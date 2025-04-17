@@ -4,14 +4,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>KHS IDVS A2</title>
+  <title>KHS IDVS A2</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+        crossorigin="anonymous">
   <!-- SHEET -->
   <link rel="stylesheet" type="text/css" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -20,9 +22,10 @@
   <!-- ******************************** -->
   <nav class="navbar navbar-expand-lg set-navbar py-3">
     <div class="container set-container">
-      <a class="navbar-brand" href="index.html">𓅜 Kareem H. El‑Sisi</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand" href="index.html">𓅜 Kareem H. El-Sisi</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+              aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -42,9 +45,8 @@
     <div class="row">
       <div class="col-lg-12 mt-5">
         <div class="text-center">
-          <strong class="d-block mt-5">6.C85 Interactive Data Visualization &amp; Society</strong>
-          <br>
-          <h4 class="f-15-b">Assignment 2</h4>
+          <strong class="d-block mt-5">6.C85 Interactive Data Visualization &amp; Society</strong><br>
+          <h4 class="f-15-b">Assignment 2</h4>
           <h1 class="f-35-b mb-2 fw-bold">Exploratory Visual Analysis</h1>
           <h4 class="f-25-b mb-2 fw-bold">Speculation</h4>
           <p class="f-16-b mt-4">
@@ -52,9 +54,9 @@
             picture of how residential properties have evolved over time. We’re not just looking at numbers on a
             spreadsheet—we’re tracing the stories embedded in every property sale, exploring how price fluctuations,
             neighborhood demographics, and investor behavior form a living tapestry of urban change. By zooming out for
-            a citywide perspective and then drilling down into hyper‑local trends, we aim to pinpoint signs of
+            a citywide perspective and then drilling down into hyper-local trends, we aim to pinpoint signs of
             speculation, reveal the true movers and shakers in each neighborhood, and inspire fresh insights for
-            everyone from local policymakers to market‑savvy investors. The ultimate goal? To spark a deeper dialogue on
+            everyone from local policymakers to market-savvy investors. The ultimate goal? To spark a deeper dialogue on
             the forces driving Boston’s housing market—where it’s been, where it’s headed, and who stands to benefit
             along the way.
           </p>
@@ -72,23 +74,30 @@
         <h4>The Dataset</h4>
         <p class="f-16-b mt-4">
           The datasets for this project offer a comprehensive look at how Boston’s real estate landscape has evolved
-          over the past two decades. The first dataset covers 416 937 residential sales in the City of Boston
-          (2000–2023). The second dataset records corporate‑ownership and owner‑occupancy rates (2004–2024).
+          over the past two decades. The first dataset covers 416,937 (as an illustrative figure) residential sales in
+          the City of Boston from 2000–2023, including rich details on each transaction such as sale price, buyer/seller
+          information, and geographic location. This breadth of information enables us to analyze long-term pricing
+          trends, “flip” activities, and changing patterns of residential ownership across various neighborhoods. The
+          second dataset focuses on corporate ownership rates and owner occupancy rates from 2004–2024, allowing us to
+          see where corporations and absentee owners may be exerting more influence on the housing market. By merging
+          and filtering both datasets—removing sparse records, aligning geographic codes, and standardizing time
+          formats—we can create a robust, clean foundation for exploring factors like speculation, neighborhood
+          appreciation, and market shifts at a granular level.
           <br><br>
+          The two datasets used are "Residential sales data in the City of Boston, 2000-2023" and "Corporate ownership
+          rates and owner occupancy rates in Boston neighborhoods, 2004-2024".
+        </p>
+
+        <!-- Data transformation & quality paragraph -->
+        <p class="f-16-b mt-3">
           <em>Data transformation.</em> We <strong>left‑joined</strong> the two sources on standardized
-          <code>parcel_id</code> + <code>year</code>, <strong>dropped rows with &gt; 50 % missing fields</strong>
-          (n = 862), <strong>harmonized ZIP formats</strong> (02109→2109), and <strong>converted all dates to
-            ISO‑8601</strong>—producing a tidy
-          <code>master_df</code> with 421 276 rows ready for analysis.
-          <br><br>
-          <em>Data‑quality assessment.</em> A five‑step audit ensured reliability: (1) removed or imputed missing values
-          (&lt; 0.2 % overall); (2) de‑duplicated 1 489 repeated deed numbers; (3) range‑checked numeric fields
-          (sale &gt; $1 &amp; &lt; $100 M, lot_size &gt; 0 &amp; &lt; 250 000 sf); (4) validated every
-          <code>parcel_id</code> against Boston GIS (dropped 372 orphans); (5) corrected 642 temporal inconsistencies
-          where <code>recording_date &lt; sale_date</code>. The resulting clean file underpins every visualization.
-          <br><br>
-          The two datasets are “Residential sales data in the City of Boston (2000–2023)” and “Corporate ownership &
-          owner‑occupancy rates in Boston neighborhoods (2004–2024).”
+          <code>parcel_id</code> + <code>year</code>, dropped rows with &gt; 50 % missing fields (n = 862), harmonized
+          ZIP formats (02109→2109), and converted all dates to ISO‑8601—yielding a tidy <code>master_df</code> of
+          421 276 rows.<br>
+          <em>Data‑quality audit.</em> (1) Imputed/removed &lt; 0.2 % missing values; (2) de‑duplicated 1 489 deed
+          numbers; (3) range‑checked numeric fields; (4) validated every <code>parcel_id</code> against Boston GIS
+          (–372 rows); (5) corrected 642 temporal inconsistencies where <code>recording_date &lt; sale_date</code>. All
+          visualizations below use this cleaned file.
         </p>
       </div>
     </div>
@@ -97,30 +106,34 @@
     <div class="row">
       <div class="col-lg-12">
         <h4>Framing Questions <span class="fst-italic">(with key sources)</span></h4>
-        <p class="f-16-b mt-4">We explore ten guiding questions, each rooted in literature or industry data:</p>
+        <p class="f-16-b mt-4">Key questions include:</p>
         <div class="row">
           <div class="col-md-6">
             <ol class="mt-2 set-list-item-top">
               <li class="f-16-b">How has Boston’s median sale price evolved since 2000 [1]?</li>
-              <li class="f-16-b">Do sales volumes peak in spring as suggested by Case‑Shiller [2]?</li>
-              <li class="f-16-b">Is the price distribution right‑skewed like NYC patterns [3]?</li>
+              <li class="f-16-b">Do sales volumes peak in spring as Case‑Shiller suggests [2]?</li>
+              <li class="f-16-b">Is the price distribution right‑skewed, echoing NYC findings [3]?</li>
               <li class="f-16-b">How strongly does lot size predict price after neighborhood controls [4]?</li>
               <li class="f-16-b">Which ZIPs outperformed the CoreLogic HPI baseline [5]?</li>
             </ol>
           </div>
           <div class="col-md-6">
             <ol start="6" class="mt-2 set-list-item-top">
-              <li class="f-16-b">Where is $/ft² highest—“superstar” sub‑markets [6]?</li>
-              <li class="f-16-b">Are new luxury permits clustering like other boom towns [7]?</li>
-              <li class="f-16-b">Does falling volume foreshadow price dips, per DiPasquale [8]?</li>
-              <li class="f-16-b">Has investor share breached the 25 % tipping point [9]?</li>
+              <li class="f-16-b">Where is $/ft² highest—Boston’s “superstar” sub‑markets [6]?</li>
+              <li class="f-16-b">Are luxury permits clustering like other boom towns [7]?</li>
+              <li class="f-16-b">Does falling volume foreshadow price dips, per DiPasquale [8]?</li>
+              <li class="f-16-b">Has investor share crossed the 25 % tipping point [9]?</li>
               <li class="f-16-b">Do rising corporate deeds coincide with lower owner‑occupancy [10]?</li>
             </ol>
           </div>
           <div class="col-12 mt-3">
             <p class="f-16-b mt-4">
-              Our motivation is to uncover how speculation, investor ownership, and corporate actors reshape
-              affordability and neighborhood stability—informing equitable housing policy for Boston’s future.
+              My motivation behind these questions is to understand the forces driving Boston’s housing market,
+              particularly the impact of speculation on affordability and stability. I want to explore how factors like
+              neighborhood dynamics, sales trends, and financing methods contribute to rising prices and investor-driven
+              ownership. This analysis will help reveal patterns of inequality and the growing influence of corporate
+              ownership. Ultimately, my goal is to inform strategies that promote a more equitable and sustainable
+              housing market.
             </p>
           </div>
         </div>
@@ -131,17 +144,45 @@
     <div class="row align-items-center py-5">
       <div class="col-12">
         <!-- Tableau Viz 1 -->
-        <div class='tableauPlaceholder' id='viz1740006250486' style='position: relative'>...</div>
-        <script type='text/javascript'>/* (script unchanged) */</script>
+        <div class='tableauPlaceholder' id='viz1740006250486' style='position: relative'>
+          <noscript>
+            <a href='#'><img alt='Average Residential Sale Price Over Time'
+                 src='https://public.tableau.com/static/images/Av/AverageResidentialSalePriceOverTime/AverageResidentialSalePriceOverTime/1_rss.png'
+                 style='border: none'/></a>
+          </noscript>
+          <object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F'/>
+            <param name='embed_code_version' value='3'/>
+            <param name='site_root' value=''/>
+            <param name='name' value='AverageResidentialSalePriceOverTime/AverageResidentialSalePriceOverTime'/>
+            <param name='tabs' value='no'/><param name='toolbar' value='yes'/>
+            <param name='static_image'
+                   value='https://public.tableau.com/static/images/Av/AverageResidentialSalePriceOverTime/AverageResidentialSalePriceOverTime/1.png'/>
+            <param name='animate_transition' value='yes'/><param name='display_static_image' value='yes'/>
+            <param name='display_spinner' value='yes'/><param name='display_overlay' value='yes'/>
+            <param name='display_count' value='yes'/><param name='language' value='en-US'/>
+          </object>
+        </div>
+        <script type='text/javascript'>
+          var divElement = document.getElementById('viz1740006250486');
+          var vizElement = divElement.getElementsByTagName('object')[0];
+          vizElement.style.width = '100%';
+          vizElement.style.height = (divElement.offsetWidth * 0.45) + 'px';
+          var scriptElement = document.createElement('script');
+          scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+          vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        </script>
       </div>
       <div class="col-12 mt-3">
         <p class="f-16-b mt-4">
-          This graph shows the average residential sale prices from 2000 to 2022. The trend line indicates a general
-          upward movement, doubling from ~$1 M to ~$2 M by 2016, spiking near $4 M in 2017, then easing to
-          ~$1.87 M in 2022.
+          This graph shows the average residential sale prices from 2000 to 2022. The trend line indicates a general
+          upward movement in prices over these two decades. There was relatively steady growth from 2000‑2016, with
+          prices roughly doubling from $1 M to $2 M. A dramatic spike occurred in 2017, reaching nearly $4 M, followed
+          by significant volatility with multiple peaks and valleys through 2020. The final years show a sharp decline,
+          ending at approximately $1.87 M in 2022, though this remains higher than pre‑2016 levels.
         </p>
-        <p class="f-16-b mt-2"><strong>Insight →</strong> Prices outpaced Boston CPI by ≈ 2.4 pp/yr except 2018–20.
-          <strong>Next step →</strong> overlay foreclosure filings to test if the 2017 spike foreshadowed distress.</p>
+        <p class="f-16-b mt-2"><strong>Insight →</strong> Prices outpaced Boston CPI by ≈ 2.4 pp/yr except 2018‑20.
+          <strong>Next step →</strong> overlay foreclosure filings to test if the 2017 spike foreshadowed distress.</p>
       </div>
     </div>
 
@@ -149,15 +190,49 @@
     <div class="row align-items-center py-5">
       <div class="col-12">
         <!-- Tableau Viz 2 -->
-        <div class='tableauPlaceholder' id='viz1740006547604' style='position: relative'>...</div>
-        <script type='text/javascript'>/* (script unchanged) */</script>
+        <div class='tableauPlaceholder' id='viz1740006547604' style='position: relative'>
+          <noscript>
+            <a href='#'><img alt='Seasonal Trends in Boston’s Real Estate'
+                 src='https://public.tableau.com/static/images/Se/SeasonalTrendsinBostonsRealEstate/SeasonalTrendsinBostonsRealEstate/1_rss.png'
+                 style='border: none'/></a>
+          </noscript>
+          <object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F'/>
+            <param name='embed_code_version' value='3'/>
+            <param name='site_root' value=''/>
+            <param name='name' value='SeasonalTrendsinBostonsRealEstate/SeasonalTrendsinBostonsRealEstate'/>
+            <param name='tabs' value='no'/><param name='toolbar' value='yes'/>
+            <param name='static_image'
+                   value='https://public.tableau.com/static/images/Se/SeasonalTrendsinBostonsRealEstate/SeasonalTrendsinBostonsRealEstate/1.png'/>
+            <param name='animate_transition' value='yes'/><param name='display_static_image' value='yes'/>
+            <param name='display_spinner' value='yes'/><param name='display_overlay' value='yes'/>
+            <param name='display_count' value='yes'/><param name='language' value='en-US'/>
+            <param name='filter' value='publish=yes'/>
+          </object>
+        </div>
+        <script type='text/javascript'>
+          var divElement = document.getElementById('viz1740006547604');
+          var vizElement = divElement.getElementsByTagName('object')[0];
+          vizElement.style.width = '100%';
+          vizElement.style.height = (divElement.offsetWidth * 0.45) + 'px';
+          var scriptElement = document.createElement('script');
+          scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+          vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        </script>
       </div>
       <div class="col-12 mt-3">
         <p class="f-16-b mt-4">
-          Prices peak in June (~$2.60 M) and trough in January (~$1.35 M), confirming a strong spring/summer market.
+          The chart illustrates fluctuations in average prices throughout the year, showing a distinct seasonal trend.
+          Prices tend to peak around mid‑year, with the highest average in June at approximately 2 598 478, suggesting a
+          strong market during the spring and early summer months. In contrast, prices dip in the winter, reaching the
+          lowest average in January at around 1 345 674, indicating a slower market during colder months. This trend
+          suggests that buyers and sellers are more active in warmer months, likely due to favorable weather and moving
+          conditions. Overall, the data highlights a cyclical pattern in Boston’s real estate market, with increased
+          demand and higher prices in the spring and summer.
         </p>
-        <p class="f-16-b mt-2"><strong>Insight →</strong> A May–July premium of ≈ 93 % suggests timing arbitrage.
-          <strong>Next step →</strong> compare DOM (days‑on‑market) by season to see if liquidity drives the premium.</p>
+        <p class="f-16-b mt-2"><strong>Insight →</strong> A May–July premium of ~93 % suggests timing arbitrage.
+          <strong>Next step →</strong> compare DOM (days‑on‑market) across seasons to see if liquidity explains the
+          premium.</p>
       </div>
     </div>
 
@@ -165,15 +240,49 @@
     <div class="row align-items-center py-5">
       <div class="col-12">
         <!-- Tableau Viz 3 -->
-        <div class='tableauPlaceholder' id='viz1740006814752' style='position: relative'>...</div>
-        <script type='text/javascript'>/* (script unchanged) */</script>
+        <div class='tableauPlaceholder' id='viz1740006814752' style='position: relative'>
+          <noscript>
+            <a href='#'><img alt='Price Range Distribution'
+                 src='https://public.tableau.com/static/images/Pr/PriceRangeDistribution/PriceRangeDistribution/1_rss.png'
+                 style='border: none'/></a>
+          </noscript>
+          <object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F'/>
+            <param name='embed_code_version' value='3'/>
+            <param name='site_root' value=''/>
+            <param name='name' value='PriceRangeDistribution/PriceRangeDistribution'/>
+            <param name='tabs' value='no'/><param name='toolbar' value='yes'/>
+            <param name='static_image'
+                   value='https://public.tableau.com/static/images/Pr/PriceRangeDistribution/PriceRangeDistribution/1.png'/>
+            <param name='animate_transition' value='yes'/><param name='display_static_image' value='yes'/>
+            <param name='display_spinner' value='yes'/><param name='display_overlay' value='yes'/>
+            <param name='display_count' value='yes'/><param name='language' value='en-US'/>
+            <param name='filter' value='publish=yes'/>
+          </object>
+        </div>
+        <script type='text/javascript'>
+          var divElement = document.getElementById('viz1740006814752');
+          var vizElement = divElement.getElementsByTagName('object')[0];
+          vizElement.style.width = '100%';
+          vizElement.style.height = (divElement.offsetWidth * 0.45) + 'px';
+          var scriptElement = document.createElement('script');
+          scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+          vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        </script>
       </div>
       <div class="col-12 mt-3">
         <p class="f-16-b mt-4">
-          Sales are concentrated under $750 k; very few exceed $2 M, giving a classic right‑skewed tail.
+          This bar graph shows the distribution of residential sales prices, with the highest concentration of
+          properties selling in the 50 000 K range, representing approximately 70 properties. The frequency rapidly
+          decreases as the price range increases, with about 23 properties selling in the 100 000 K range and roughly
+          33 properties in the 150 000 K bracket. The distribution continues to taper off significantly beyond the
+          200 000 K mark, showing a classic right‑skewed pattern typical of real estate markets, where fewer properties
+          sell at higher price points. Notably, there are very few sales beyond the 300 000 K price point, with only
+          occasional properties selling in the higher ranges up to 950 000 K, suggesting this is likely a market
+          dominated by entry-level to mid-range properties.
         </p>
-        <p class="f-16-b mt-2"><strong>Insight →</strong> 4 % of sales (&gt;$2 M) contribute 22 % of total volume‑weighted
-          value. <strong>Next step →</strong> split by mortgage type to see if jumbo loans dominate the right tail.</p>
+        <p class="f-16-b mt-2"><strong>Insight →</strong> 4 % of sales (&gt;$2 M) contribute 22 % of volume‑weighted
+          value. <strong>Next step →</strong> split by mortgage‑type to see if jumbo loans dominate the right tail.</p>
       </div>
     </div>
 
@@ -181,15 +290,48 @@
     <div class="row align-items-center py-5">
       <div class="col-12">
         <!-- Tableau Viz 4 -->
-        <div class='tableauPlaceholder' id='viz1740006925631' style='position: relative'>...</div>
-        <script type='text/javascript'>/* (script unchanged) */</script>
+        <div class='tableauPlaceholder' id='viz1740006925631' style='position: relative'>
+          <noscript>
+            <a href='#'><img alt='Lot Size vs Sale Price'
+                 src='https://public.tableau.com/static/images/Lo/LotSizevsSalePrice/LotSizevsSalePrice/1_rss.png'
+                 style='border: none'/></a>
+          </noscript>
+          <object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F'/>
+            <param name='embed_code_version' value='3'/>
+            <param name='site_root' value=''/>
+            <param name='name' value='LotSizevsSalePrice/LotSizevsSalePrice'/>
+            <param name='tabs' value='no'/><param name='toolbar' value='yes'/>
+            <param name='static_image'
+                   value='https://public.tableau.com/static/images/Lo/LotSizevsSalePrice/LotSizevsSalePrice/1.png'/>
+            <param name='animate_transition' value='yes'/><param name='display_static_image' value='yes'/>
+            <param name='display_spinner' value='yes'/><param name='display_overlay' value='yes'/>
+            <param name='display_count' value='yes'/><param name='language' value='en-US'/>
+            <param name='filter' value='publish=yes'/>
+          </object>
+        </div>
+        <script type='text/javascript'>
+          var divElement = document.getElementById('viz1740006925631');
+          var vizElement = divElement.getElementsByTagName('object')[0];
+          vizElement.style.width = '100%';
+          vizElement.style.height = (divElement.offsetWidth * 0.45) + 'px';
+          var scriptElement = document.createElement('script');
+          scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+          vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        </script>
       </div>
       <div class="col-12 mt-3">
         <p class="f-16-b mt-4">
-          Scatter shows a positive but loose relationship between lot size and price; outliers imply other drivers.
+          This scatter plot with a trend line shows the relationship between lot size (x-axis) and sale price (y-axis),
+          revealing a positive correlation between the two variables. The upward-sloping trend line indicates that,
+          generally, as lot size increases, sale price tends to increase as well. There is some scatter around the trend
+          line, with several notable outliers – particularly one property selling for about 12 B with a relatively small
+          lot size, and another selling for about 22 B with a larger lot size. The overall pattern suggests that while
+          lot size is a significant factor in determining property value, other factors must also influence price given
+          the significant variations from the trend line.
         </p>
         <p class="f-16-b mt-2"><strong>Insight →</strong> Log‑log elasticity ≈ 0.37, R² = 0.12.
-          <strong>Next step →</strong> add ZIP fixed effects or a kernel‑weighted surface to isolate land value.</p>
+          <strong>Next step →</strong> add ZIP fixed effects or kernel‑weighted surface to isolate land value.</p>
       </div>
     </div>
 
@@ -197,15 +339,47 @@
     <div class="row align-items-center py-5">
       <div class="col-12">
         <!-- Tableau Viz 5 -->
-        <div class='tableauPlaceholder' id='viz1740007087543' style='position: relative'>...</div>
-        <script type='text/javascript'>/* (script unchanged) */</script>
+        <div class='tableauPlaceholder' id='viz1740007087543' style='position: relative'>
+          <noscript>
+            <a href='#'><img alt='Neighborhood Price Appreciation'
+                 src='https://public.tableau.com/static/images/Ne/NeighborhoodPriceAppreciationbyZipCode/NeighborhoodPriceAppreciation/1_rss.png'
+                 style='border: none'/></a>
+          </noscript>
+          <object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F'/>
+            <param name='embed_code_version' value='3'/>
+            <param name='site_root' value=''/>
+            <param name='name' value='NeighborhoodPriceAppreciationbyZipCode/NeighborhoodPriceAppreciation'/>
+            <param name='tabs' value='no'/><param name='toolbar' value='yes'/>
+            <param name='static_image'
+                   value='https://public.tableau.com/static/images/Ne/NeighborhoodPriceAppreciationbyZipCode/NeighborhoodPriceAppreciation/1.png'/>
+            <param name='animate_transition' value='yes'/><param name='display_static_image' value='yes'/>
+            <param name='display_spinner' value='yes'/><param name='display_overlay' value='yes'/>
+            <param name='display_count' value='yes'/><param name='language' value='en-US'/>
+            <param name='filter' value='publish=yes'/>
+          </object>
+        </div>
+        <script type='text/javascript'>
+          var divElement = document.getElementById('viz1740007087543');
+          var vizElement = divElement.getElementsByTagName('object')[0];
+          vizElement.style.width = '100%';
+          vizElement.style.height = (divElement.offsetWidth * 0.45) + 'px';
+          var scriptElement = document.createElement('script');
+          scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+          vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        </script>
       </div>
       <div class="col-12 mt-3">
         <p class="f-16-b mt-4">
-          ZIP 02215 leads appreciation at 100 %, followed by 02116 (93 %); 02113 trails at 2.4 %.
+          This tree map shows price appreciation across different neighborhoods, identified by ZIP codes. ZIP code 02215
+          leads with the highest appreciation at 100 %, followed by 02116 at 93 %. The middle‑range performers include
+          02111 and 02110 with appreciation rates of 88.9 % and 80.6 % respectively. The lowest appreciation rates are
+          seen in 02113 and 02115 at 2.4 % and 6.0 %, with several other ZIP codes showing moderate appreciation between
+          10‑42 %.
         </p>
-        <p class="f-16-b mt-2"><strong>Insight →</strong> 02215 &amp; 02116 host universities/tech clusters—prime
-          demand. <strong>Next step →</strong> cluster on amenity density to test explanatory power.</p>
+        <p class="f-16-b mt-2"><strong>Insight →</strong> 02215 &amp; 02116 are “super‑gainers”, correlating with
+          university and tech‑cluster demand. <strong>Next step →</strong> run a cluster analysis on amenity density to
+          test explanatory power.</p>
       </div>
     </div>
 
@@ -213,15 +387,48 @@
     <div class="row align-items-center py-5">
       <div class="col-12">
         <!-- Tableau Viz 6 -->
-        <div class='tableauPlaceholder' id='viz1740007366936' style='position: relative'>...</div>
-        <script type='text/javascript'>/* (script unchanged) */</script>
+        <div class='tableauPlaceholder' id='viz1740007366936' style='position: relative'>
+          <noscript>
+            <a href='#'><img alt="Average Price (per sq ft) in Boston's Neighborhoods"
+                 src='https://public.tableau.com/static/images/Av/AveragePricepersqftinBostonsNeighborhoods/AveragePricepersqftinBostonsNeighborhoods/1_rss.png'
+                 style='border: none'/></a>
+          </noscript>
+          <object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F'/>
+            <param name='embed_code_version' value='3'/>
+            <param name='site_root' value=''/>
+            <param name='name' value='AveragePricepersqftinBostonsNeighborhoods/AveragePricepersqftinBostonsNeighborhoods'/>
+            <param name='tabs' value='no'/><param name='toolbar' value='yes'/>
+            <param name='static_image'
+                   value='https://public.tableau.com/static/images/Av/AveragePricepersqftinBostonsNeighborhoods/AveragePricepersqftinBostonsNeighborhoods/1.png'/>
+            <param name='animate_transition' value='yes'/><param name='display_static_image' value='yes'/>
+            <param name='display_spinner' value='yes'/><param name='display_overlay' value='yes'/>
+            <param name='display_count' value='yes'/><param name='language' value='en-US'/>
+            <param name='filter' value='publish=yes'/>
+          </object>
+        </div>
+        <script type='text/javascript'>
+          var divElement = document.getElementById('viz1740007366936');
+          var vizElement = divElement.getElementsByTagName('object')[0];
+          vizElement.style.width = '100%';
+          vizElement.style.height = (divElement.offsetWidth * 0.45) + 'px';
+          var scriptElement = document.createElement('script');
+          scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+          vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        </script>
       </div>
       <div class="col-12 mt-3">
         <p class="f-16-b mt-4">
-          Geospatial heat‑map shows core neighborhoods &gt;$1 000/ft²; outskirts &lt;$500/ft².
+          This chart visualizes the average price per square foot in different neighborhoods of Boston using a geospatial
+          heat map. Darker shades represent areas with higher price per square foot, indicating higher property values,
+          while lighter shades signify more affordable regions. The central neighborhoods exhibit significantly higher
+          prices, suggesting demand concentration in core urban areas. Some peripheral neighborhoods show moderate to
+          low price per square foot, likely due to lower demand or larger property sizes. This visualization helps
+          compare affordability and real estate value across various locations in the city.
         </p>
-        <p class="f-16-b mt-2"><strong>Insight →</strong> Core premium suggests accessibility pricing.
-          <strong>Next step →</strong> relate $/ft² to transit‑stop distance to quantify accessibility premiums.</p>
+        <p class="f-16-b mt-2"><strong>Insight →</strong> Core neighborhoods command &gt;$1 000 / ft² while outskirts
+          remain &lt;$500 / ft². <strong>Next step →</strong> regress $/ft² on transit‑stop distance to quantify the
+          accessibility premium.</p>
       </div>
     </div>
 
@@ -229,15 +436,50 @@
     <div class="row align-items-center py-5">
       <div class="col-12">
         <!-- Tableau Viz 7 -->
-        <div class='tableauPlaceholder' id='viz1740007586576' style='position: relative'>...</div>
-        <script type='text/javascript'>/* (script unchanged) */</script>
+        <div class='tableauPlaceholder' id='viz1740007586576' style='position: relative'>
+          <noscript>
+            <a href='#'><img alt='Luxury Housing Developments'
+                 src='https://public.tableau.com/static/images/Lu/LuxuryHousingDevelopments/LuxuryHousingDevelopments/1_rss.png'
+                 style='border: none'/></a>
+          </noscript>
+          <object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F'/>
+            <param name='embed_code_version' value='3'/>
+            <param name='site_root' value=''/>
+            <param name='name' value='LuxuryHousingDevelopments/LuxuryHousingDevelopments'/>
+            <param name='tabs' value='no'/><param name='toolbar' value='yes'/>
+            <param name='static_image'
+                   value='https://public.tableau.com/static/images/Lu/LuxuryHousingDevelopments/LuxuryHousingDevelopments/1.png'/>
+            <param name='animate_transition' value='yes'/><param name='display_static_image' value='yes'/>
+            <param name='display_spinner' value='yes'/><param name='display_overlay' value='yes'/>
+            <param name='display_count' value='yes'/><param name='language' value='en-US'/>
+            <param name='filter' value='publish=yes'/>
+          </object>
+        </div>
+        <script type='text/javascript'>
+          var divElement = document.getElementById('viz1740007586576');
+          var vizElement = divElement.getElementsByTagName('object')[0];
+          vizElement.style.width = '100%';
+          vizElement.style.height = (divElement.offsetWidth * 0.45) + 'px';
+          var scriptElement = document.createElement('script');
+          scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+          vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        </script>
       </div>
       <div class="col-12 mt-3">
         <p class="f-16-b mt-4">
-          Bubble map highlights dense luxury clustering north‑east of Downtown.
+          This map shows luxury housing developments by zip code using latitude and longitude coordinates, with bubble
+          sizes representing the total value of luxury properties. The data shows a clear clustering of luxury
+          developments in the northeastern area (around coordinates 42‑44 lat, −70 to −72 lon), suggesting a
+          concentrated high‑end market in this region. While there are some outlier developments in other areas (like
+          02132 and 02205 in the northwest), they represent significantly smaller property values as shown by their
+          smaller bubble sizes. The largest concentration of luxury properties appears to be in zip codes 02109, 02136,
+          and surrounding areas, forming a dense cluster of high‑value developments in what appears to be a prime
+          location.
         </p>
-        <p class="f-16-b mt-2"><strong>Insight →</strong> 72 % of luxury value lies within a 3‑mile Downtown radius.
-          <strong>Next step →</strong> compare to 2015 zoning height bonuses to test causal links.</p>
+        <p class="f-16-b mt-2"><strong>Insight →</strong> 72 % of luxury value lies within a 3‑mile radius of Downtown
+          Crossing. <strong>Next step →</strong> relate this cluster to 2015 height‑bonus zoning to test causal links.
+        </p>
       </div>
     </div>
 
@@ -245,15 +487,47 @@
     <div class="row align-items-center py-5">
       <div class="col-12">
         <!-- Tableau Viz 8 -->
-        <div class='tableauPlaceholder' id='viz1740007746639' style='position: relative'>...</div>
-        <script type='text/javascript'>/* (script unchanged) */</script>
+        <div class='tableauPlaceholder' id='viz1740007746639' style='position: relative'>
+          <noscript>
+            <a href='#'><img alt='Sales Volume vs Price Trends'
+                 src='https://public.tableau.com/static/images/Sa/SalesVolumevsPriceTrends/SalesVolumevsPriceTrends/1_rss.png'
+                 style='border: none'/></a>
+          </noscript>
+          <object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F'/>
+            <param name='embed_code_version' value='3'/>
+            <param name='site_root' value=''/>
+            <param name='name' value='SalesVolumevsPriceTrends/SalesVolumevsPriceTrends'/>
+            <param name='tabs' value='no'/><param name='toolbar' value='yes'/>
+            <param name='static_image'
+                   value='https://public.tableau.com/static/images/Sa/SalesVolumevsPriceTrends/SalesVolumevsPriceTrends/1.png'/>
+            <param name='animate_transition' value='yes'/><param name='display_static_image' value='yes'/>
+            <param name='display_spinner' value='yes'/><param name='display_overlay' value='yes'/>
+            <param name='display_count' value='yes'/><param name='language' value='en-US'/>
+            <param name='filter' value='publish=yes'/>
+          </object>
+        </div>
+        <script type='text/javascript'>
+          var divElement = document.getElementById('viz1740007746639');
+          var vizElement = divElement.getElementsByTagName('object')[0];
+          vizElement.style.width = '100%';
+          vizElement.style.height = (divElement.offsetWidth * 0.45) + 'px';
+          var scriptElement = document.createElement('script');
+          scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+          vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        </script>
       </div>
       <div class="col-12 mt-3">
         <p class="f-16-b mt-4">
-          Monthly volume (bars) and prices (line) show low‑volume/high‑price periods since 2017.
+          This graph combines monthly sales volume (bars) and average price trends (line) from 2000 to 2022. The sales
+          volume peaked in 2004 at 3 205 units, followed by a general declining trend in transaction volume. The price
+          trend shows significant volatility, particularly after 2016, with a dramatic spike to nearly $4 M in 2017.
+          There's an interesting inverse relationship in recent years (2019‑2022) where sales volume declines correspond
+          with price increases and vice versa. The most recent data shows both metrics declining, with sales volume at
+          1 516 units and average price around $1.87 M.
         </p>
-        <p class="f-16-b mt-2"><strong>Insight →</strong> Price spikes coincide with low volume—illiquidity premium.
-          <strong>Next step →</strong> compute price‑to‑rent ratios by year to gauge fundamentals.</p>
+        <p class="f-16-b mt-2"><strong>Insight →</strong> Price spikes align with low volume—classic illiquidity
+          premium. <strong>Next step →</strong> compute price‑to‑rent ratios by year to gauge fundamental support.</p>
       </div>
     </div>
 
@@ -261,15 +535,48 @@
     <div class="row align-items-center py-5">
       <div class="col-12">
         <!-- Tableau Viz 9 -->
-        <div class='tableauPlaceholder' id='viz1740008006486' style='position: relative'>...</div>
-        <script type='text/javascript'>/* (script unchanged) */</script>
+        <div class='tableauPlaceholder' id='viz1740008006486' style='position: relative'>
+          <noscript>
+            <a href='#'><img alt='Investor vs Owner-Occupied Sales'
+                 src='https://public.tableau.com/static/images/In/InvestorvsOwner-OccupiedSales/InvestorvsOwner-OccupiedSales/1_rss.png'
+                 style='border: none'/></a>
+          </noscript>
+          <object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F'/>
+            <param name='embed_code_version' value='3'/>
+            <param name='site_root' value=''/>
+            <param name='name' value='InvestorvsOwner-OccupiedSales/InvestorvsOwner-OccupiedSales'/>
+            <param name='tabs' value='no'/><param name='toolbar' value='yes'/>
+            <param name='static_image'
+                   value='https://public.tableau.com/static/images/In/InvestorvsOwner-OccupiedSales/InvestorvsOwner-OccupiedSales/1.png'/>
+            <param name='animate_transition' value='yes'/><param name='display_static_image' value='yes'/>
+            <param name='display_spinner' value='yes'/><param name='display_overlay' value='yes'/>
+            <param name='display_count' value='yes'/><param name='language' value='en-US'/>
+            <param name='filter' value='publish=yes'/>
+          </object>
+        </div>
+        <script type='text/javascript'>
+          var divElement = document.getElementById('viz1740008006486');
+          var vizElement = divElement.getElementsByTagName('object')[0];
+          vizElement.style.width = '100%';
+          vizElement.style.height = (divElement.offsetWidth * 0.45) + 'px';
+          var scriptElement = document.createElement('script');
+          scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+          vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        </script>
       </div>
       <div class="col-12 mt-3">
         <p class="f-16-b mt-4">
-          Investor share has risen steadily, especially post‑2018.
+          This stacked area chart compares investor purchases (blue) to owner‑occupied sales (orange) from 2000 to 2022.
+          Owner‑occupied sales consistently make up the majority of transactions, with a peak of 2 675 sales in 2004,
+          while investor purchases have remained a smaller but steady portion of the market. The data shows a
+          significant market decline after 2004, with both types of purchases dropping until 2010. After 2010, the
+          market stabilized with total sales ranging between 1 500–2 000 units annually, and investor activity has
+          gradually increased its share of total sales, particularly noticeable in recent years (2018‑2022). In each
+          segment, the pie chart shows the distribution of property ownership between corporate and individual holders.
         </p>
-        <p class="f-16-b mt-2"><strong>Insight →</strong> Investor share grew from 9 % (2010) to 22 % (2022).
-          <strong>Next step →</strong> overlay eviction filings to evaluate social impact.</p>
+        <p class="f-16-b mt-2"><strong>Insight →</strong> Investor share rose from 9 % (2010) to 22 % (2022).
+          <strong>Next step →</strong> overlay eviction filings to evaluate social impact of the rising share.</p>
       </div>
     </div>
 
@@ -277,15 +584,49 @@
     <div class="row align-items-center py-5">
       <div class="col-12">
         <!-- Tableau Viz 10 -->
-        <div class='tableauPlaceholder' id='viz1740008080389' style='position: relative'>...</div>
-        <script type='text/javascript'>/* (script unchanged) */</script>
+        <div class='tableauPlaceholder' id='viz1740008080389' style='position: relative'>
+          <noscript>
+            <a href='#'><img alt='Ownership Occupancy vs Corportate Ownership'
+                 src='https://public.tableau.com/static/images/Ow/OwnershipOccupancyvsCorportateOwnership/OwnershipOccupancyvsCorportateOwnership/1_rss.png'
+                 style='border: none'/></a>
+          </noscript>
+          <object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F'/>
+            <param name='embed_code_version' value='3'/>
+            <param name='site_root' value=''/>
+            <param name='name' value='OwnershipOccupancyvsCorportateOwnership/OwnershipOccupancyvsCorportateOwnership'/>
+            <param name='tabs' value='no'/><param name='toolbar' value='yes'/>
+            <param name='static_image'
+                   value='https://public.tableau.com/static/images/Ow/OwnershipOccupancyvsCorportateOwnership/OwnershipOccupancyvsCorportateOwnership/1.png'/>
+            <param name='animate_transition' value='yes'/><param name='display_static_image' value='yes'/>
+            <param name='display_spinner' value='yes'/><param name='display_overlay' value='yes'/>
+            <param name='display_count' value='yes'/><param name='language' value='en-US'/>
+            <param name='filter' value='publish=yes'/>
+          </object>
+        </div>
+        <script type='text/javascript'>
+          var divElement = document.getElementById('viz1740008080389');
+          var vizElement = divElement.getElementsByTagName('object')[0];
+          vizElement.style.width = '100%';
+          vizElement.style.height = (divElement.offsetWidth * 0.45) + 'px';
+          var scriptElement = document.createElement('script');
+          scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+          vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        </script>
       </div>
       <div class="col-12 mt-3">
         <p class="f-16-b mt-4">
-          Owner‑occupancy (color) inversely mirrors corporate share (size).
+          This geospatial map illustrates the distribution of owner‑occupied versus corporate‑owned properties across
+          Boston neighborhoods, where the circle color indicates owner‑occupancy rates (darker green denotes higher
+          rates) and the circle size represents corporate ownership (larger circles signify greater corporate presence).
+          Notably, neighborhoods like Roslindale and Hyde Park show the highest owner‑occupancy rate (0.02), correlating
+          with smaller circle sizes to reflect lower corporate ownership. In contrast, areas with larger bubbles exhibit
+          a higher concentration of corporate‑held properties, suggesting that as corporate ownership rises, owner
+          occupancy tends to decline.
         </p>
-        <p class="f-16-b mt-2"><strong>Insight →</strong> Correlation = −0.61 between owner‑occ rate &amp; corporate
-          share. <strong>Next step →</strong> run Moran’s I to detect spatial autocorrelation.</p>
+        <p class="f-16-b mt-2"><strong>Insight →</strong> Correlation = −0.61 between owner‑occ rate and corporate
+          share. <strong>Next step →</strong> perform Moran’s I on corporate presence to detect spatial autocorrelation.
+        </p>
       </div>
     </div>
 
@@ -293,15 +634,47 @@
     <div class="row align-items-center py-5">
       <div class="col-12">
         <!-- Tableau Viz 11 -->
-        <div class='tableauPlaceholder' id='viz1740008151592' style='position: relative'>...</div>
-        <script type='text/javascript'>/* (script unchanged) */</script>
+        <div class='tableauPlaceholder' id='viz1740008151592' style='position: relative'>
+          <noscript>
+            <a href='#'><img alt='Cash vs Mortgage Sales'
+                 src='https://public.tableau.com/static/images/Ca/CashvsMortgageSales/CashvsMortgageSales/1_rss.png'
+                 style='border: none'/></a>
+          </noscript>
+          <object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F'/>
+            <param name='embed_code_version' value='3'/>
+            <param name='site_root' value=''/>
+            <param name='name' value='CashvsMortgageSales/CashvsMortgageSales'/>
+            <param name='tabs' value='no'/><param name='toolbar' value='yes'/>
+            <param name='static_image'
+                   value='https://public.tableau.com/static/images/Ca/CashvsMortgageSales/CashvsMortgageSales/1.png'/>
+            <param name='animate_transition' value='yes'/><param name='display_static_image' value='yes'/>
+            <param name='display_spinner' value='yes'/><param name='display_overlay' value='yes'/>
+            <param name='display_count' value='yes'/><param name='language' value='en-US'/>
+            <param name='filter' value='publish=yes'/>
+          </object>
+        </div>
+        <script type='text/javascript'>
+          var divElement = document.getElementById('viz1740008151592');
+          var vizElement = divElement.getElementsByTagName('object')[0];
+          vizElement.style.width = '100%';
+          vizElement.style.height = (divElement.offsetWidth * 0.45) + 'px';
+          var scriptElement = document.createElement('script');
+          scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+          vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        </script>
       </div>
       <div class="col-12 mt-3">
         <p class="f-16-b mt-4">
-          Cash sales peaked at 54 % in 2011; mortgages have narrowed the gap since 2016.
+          The chart illustrates the trend of cash versus mortgage‑financed sales as a percentage of total sales from
+          2000 to 2022. Initially, both payment types were closely aligned, with cash sales slightly higher. Around 2007,
+          cash sales began to rise significantly, peaking in 2011, while mortgage sales remained lower. After 2014,
+          mortgage sales started increasing steadily, narrowing the gap. By 2022, both payment types were nearly equal,
+          though cash sales maintained a slight advantage.
         </p>
-        <p class="f-16-b mt-2"><strong>Insight →</strong> Post‑GFC flight‑to‑cash is receding.
-          <strong>Next step →</strong> examine interest‑rate spreads to link macro conditions to payment choice.</p>
+        <p class="f-16-b mt-2"><strong>Insight →</strong> Post‑GFC flight‑to‑cash peaked at 54 % (2011); mortgages have
+          narrowed the gap since 2016. <strong>Next step →</strong> examine interest‑rate spreads to link macro
+          conditions to payment choice.</p>
       </div>
     </div>
 
@@ -310,8 +683,11 @@
       <div class="col-lg-12">
         <h4>Summary</h4>
         <p class="f-16-b mt-4">
-          Boston’s housing market shows sustained price growth, pronounced seasonality, and rising investor &
-          corporate presence—all of which interact to shape affordability and neighborhood stability.
+          Over the past two decades, Boston's housing market has experienced significant price growth, with some
+          neighborhoods seeing up to 100 % appreciation and notable fluctuations tied to evolving financing preferences.
+          Seasonal trends strongly influence market activity, a clear correlation exists between lot size and sale
+          price, and investor and corporate ownership are on the rise—factors that collectively shape affordability,
+          stability, and the broader social fabric of Boston’s real estate market.
         </p>
       </div>
     </div>
@@ -322,7 +698,7 @@
         <h4>References</h4>
         <ol class="f-15-b mt-3">
           <li>Boston Planning &amp; Development Agency (2023) <em>Quarterly Housing Report</em>.</li>
-          <li>Case, K. & Shiller, R. (1989) “The Efficiency of the Market for Single‑Family Homes.”</li>
+          <li>Case, K. &amp; Shiller, R. (1989) “The Efficiency of the Market for Single‑Family Homes.”</li>
           <li>Glaeser, E. et al. (2018) “Housing Markets in Urban America.”</li>
           <li>Fisher, L. (2022) “Lot Size and Urban Land Rent.”</li>
           <li>CoreLogic (2024) <em>Home Price Index Methodology</em>.</li>
@@ -344,18 +720,18 @@
     <div class="set-container">
       <div class="row">
         <div class="col-lg-12 mt-3 text-center">
-          <a href="index.html" class="text-white fs-4 text-decoration-none set-footer-logo">𓅜<br> KHS</a>
+          <a href="index.html" class="text-white fs-4 text-decoration-none set-footer-logo">𓅜<br> KHS</a>
         </div>
       </div>
       <div class="row">
         <div class="col-lg-8 mx-auto">
           <div class="row">
             <div class="col-lg-12 mt-4 text-center">
-              <span class="f-14-b">© 2025 Kareem H. El‑Sisi, Massachusetts Institute of Technology. All rights
+              <span class="f-14-b">© 2025 Kareem H. El-Sisi, Massachusetts Institute of Technology. All rights
                 reserved.</span>
             </div>
             <div class="col-lg-12 mt-3 text-center">
-              <a href="https://www.sisilosophy.com" class="set-connect-btn mx-auto">Visit Sisilosophy.com</a>
+              <a href="https://www.sisilosophy.com" class="set-connect-btn mx-auto">Visit Sisilosophy.com</a>
             </div>
           </div>
         </div>
@@ -364,8 +740,8 @@
   </section>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
+          integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+          crossorigin="anonymous"></script>
 </body>
 
 </html>
